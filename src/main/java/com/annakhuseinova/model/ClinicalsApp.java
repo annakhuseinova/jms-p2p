@@ -24,7 +24,11 @@ public class ClinicalsApp {
             patient.setCopay(30d);
             patient.setAmountToBePaid(500d);
             objectMessage.setObject(patient);
-            producer.send(requestQueue, objectMessage);
+
+            for (int i = 0; i < 10; i++) {
+                producer.send(requestQueue, objectMessage);
+            }
+
         }
     }
 }
